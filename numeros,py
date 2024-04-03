@@ -1,0 +1,38 @@
+# Solicitar al usuario que ingrese 10 números
+numeros = []  
+# Creamos una lista vacía para almacenar los números ingresados
+for i in range(10):  
+    # Utilizamos un bucle for para iterar 10 veces
+    numero = int(input(f"Ingrese el número {i + 1}: "))  
+    # Solicitamos al usuario que ingrese un número
+    numeros.append(numero) 
+    # Agregamos el número ingresado a la lista de números
+
+# Encontrar el número más pequeño y el número más grande
+numero_mas_pequeno = min(numeros)  
+# Encontramos el número más pequeño en la lista de números
+numero_mas_grande = max(numeros)   
+# Encontramos el número más grande en la lista de números
+
+# Contar cuántas veces se repite cada número
+conteo_numeros = {}  
+# Creamos un diccionario vacío para almacenar el conteo de cada número
+for numero in numeros:  
+    # Iteramos sobre cada número en la lista de números
+    if numero in conteo_numeros:  
+        # Verificamos si el número ya está en el diccionario de conteo
+        conteo_numeros[numero] += 1  
+        # Si el número ya está en el diccionario, incrementamos su conteo en 1
+    else:
+        conteo_numeros[numero] = 1  
+        # Si el número no está en el diccionario, lo agregamos con un conteo inicial de 1
+
+# Imprimir resultados
+print("El número más pequeño es:", numero_mas_pequeno)  # Imprimimos el número más pequeño
+print("El número más grande es:", numero_mas_grande)    # Imprimimos el número más grande
+print("Cantidad de veces que se repite cada número:")   
+# Imprimimos un mensaje indicando que vamos a imprimir el conteo de cada número
+for numero, cantidad in conteo_numeros.items(): 
+    # Iteramos sobre los pares clave-valor en el diccionario de conteo
+    print(numero, ":", cantidad)  
+    # Imprimimos el número y su cantidad correspondiente de veces que se repite
