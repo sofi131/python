@@ -1,11 +1,12 @@
 import os
 
 try:
-    # Solicitar al usuario que ingrese el nombre del archivo de texto
-    nombre_archivo = input("Ingrese el nombre del archivo de texto: ")
+    # Solicitar al usuario que ingrese la ruta completa del archivo de texto
+    ruta_archivo = input("Ingrese la ruta completa del archivo de texto: ")
 
-    # Obtener la ruta absoluta del archivo de texto en la misma carpeta que el script
-    ruta_archivo = os.path.join(os.path.dirname(__file__), nombre_archivo)
+    # Verificar si la ruta de archivo es válida
+    if not os.path.isfile(ruta_archivo):
+        raise FileNotFoundError(f"No se encontró el archivo en la ruta especificada: {ruta_archivo}")
 
     # Abrir el archivo en modo lectura
     with open(ruta_archivo, 'r') as archivo:
@@ -21,7 +22,7 @@ try:
         # Imprimir el resultado
         print("El número de palabras en el archivo es:", numero_palabras)
         
-except FileNotFoundError:
-    print(f"Error: El archivo '{nombre_archivo}' no fue encontrado.")
+except FileNotFoundError as e:
+    print(e)
 except Exception as e:
     print("Ocurrió un error:", e)
