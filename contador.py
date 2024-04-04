@@ -8,7 +8,7 @@ try:
     if not os.path.isfile(ruta_archivo):
         raise FileNotFoundError(f"No se encontró el archivo en la ruta especificada: {ruta_archivo}")
 
-    # Abrir el archivo en modo lectura
+    # Abrir el archivo en modo lectura (read leer y write/w)
     with open(ruta_archivo, 'r') as archivo:
         # Leer el contenido del archivo
         contenido = archivo.read()
